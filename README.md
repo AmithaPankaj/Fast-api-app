@@ -46,3 +46,10 @@
 -not null --eg: name
 -check --eg: salary> 0
 -default --eg: timestamp:func.now()
+
+# modules
+-sqlalchemy--orm(object relational mapping)
+-fastapi--web framework
+-uvicorn--server for running fastapi
+application-->uvicorn app.main:app --reload
+-psycopg2--postgresql driver
