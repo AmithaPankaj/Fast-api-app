@@ -53,3 +53,6 @@
 -uvicorn--server for running fastapi
 application-->uvicorn app.main:app --reload
 -psycopg2--postgresql driver
+
+pip install alembic
+alembic init alembic
