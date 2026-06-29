@@ -15,7 +15,7 @@ class CompanyUpdate(BaseModel):
     email:Optional[str] = None
     phone:Optional[str] = None
     location:Optional[str]= None
-    class CompanyResponse(CompanyBase):
+class CompanyResponse(CompanyBase):
     id: int
     jobs:list[JobResponse]
 
