@@ -10,15 +10,17 @@ companies=[]
 
 @router.post("/",status_code=status.HTTP_201_CREATED,response_model=CompanyResponse)
 def create_company(company:CompanyCreate,db:Session=Depends(get_db)):
-    db_company=company(**company.dict())
+    db_company=Company(**company.dict())
     db.add(db_company)
     db.commit()
     db.refresh(db_company)
     return db_company
 
-@router.get("/",status_code=status.HTTP_200_OK,response_model=list[CompanyResponse])
-def get_all_company(db:Session=Depends(get_db)):
-    pass
+
+@router.get("/", status_code=status.HTTP_200_OK, response_model=list[CompanyResponse])
+def get_all_company(db: Session = Depends(get_db)):
+    companies = db.query(Company).all()
+    return companies
 
 @router.get("/{id}",status_code=status.HTTP_200_OK)
 def get_by_id(id):

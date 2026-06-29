@@ -8,7 +8,7 @@ jobs=[]
 @router.post("/")
 def create_job(job: JobCreate):
     jobs.append(job)
-    return job
+    return jobBase.metadata.create_all(bind=engine)
 
 @router.get("/")
 def get_all_job():
