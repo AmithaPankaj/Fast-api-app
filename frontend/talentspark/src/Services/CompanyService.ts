@@ -5,5 +5,26 @@ const API_URL = "http://localhost:8000";
 
  export async function getCompanies(): Promise<Company[]> {
     const response = await axios.get(`${API_URL}/company`);
+
     return response.data;
  }
+  
+ export async function getCompanyById(id: number): Promise<Company> {
+      const response = await axios.get(`${API_URL}/company/${id}`);
+      return response.data;
+}
+
+export async function createCompany(company: Company): Promise<Company> {
+      const response = await axios.post(`${API_URL}/company`, company);
+      return response.data;
+}
+
+export async function updateCompany(id: string, company: Company): Promise<Company> {
+      const response = await axios.put(`${API_URL}/company/${id}`, company);
+      return response.data;
+}
+
+export async function deleteCompany(id: string): Promise<void> {
+      const response = await axios.delete(`${API_URL}/company/${id}`);
+      return response.data;
+}
